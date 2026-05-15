@@ -94,3 +94,36 @@ Stage Summary:
 - All sections rendering with animations
 - Contact form connected to backend API
 - Zero lint errors
+
+---
+Task ID: 6
+Agent: Main Orchestrator
+Task: Apply user-requested changes to portfolio
+
+Work Log:
+- Analyzed uploaded screenshot using VLM to identify skills to remove: Technical Drafting, Steel Connection, Blueprint Reading, 3D Modeling, Isometric Views, CAD Standards
+- Replaced profile picture with user's uploaded photo (WhatsApp Image 2026-05-15)
+- Removed 3 projects: Steel Connection Detail, Piping & Valve System, 3D Machinery Assembly
+- Kept only 3 projects: PEB Warehouse Structure, Equipment Parts Assembly, Floor Plan Layout
+- Updated categories to: All, PEB Structures, Equipment
+- Removed 6 skills, kept: AutoCAD 2D, AutoCAD 3D, PEB Design, Structural Detailing, Equipment Design, Machinery Parts
+- Removed Call button and LinkedIn icon from footer, kept only Mail icon
+- Updated all email references to syedsadat0123@gmail.com (footer, contact section)
+- Added clickable email link above contact form (syedsadat0123@gmail.com)
+- Updated profile bio with new text about SYED's experience
+- Updated stats: 5+ years, 20+ projects, 12+ happy clients, 100+ CAD models
+- Added Dark/Light theme toggle with animated Sun/Moon icon transition in navbar
+- Used useSyncExternalStore for hydration-safe mounted state (lint fix)
+- Updated all components to use Tailwind CSS variables (text-foreground, text-muted-foreground, bg-background, etc.) for proper light/dark theme support
+- Updated globals.css with light theme color variables and .glass variant for light mode
+- Added smooth theme transition (0.3s ease-in-out) on background-color, border-color, color
+- Lint passes clean, dev server running
+
+Stage Summary:
+- All user-requested changes applied successfully
+- Dark/Light theme toggle with animated Sun/Moon swap (rotate + slide transition)
+- Only Mail icon in footer, email = syedsadat0123@gmail.com
+- 3 projects remain, 6 skills remain
+- Profile picture replaced with user's photo
+- Stats updated to 5+/20+/12+/100+
+- Full light/dark theme support across all components

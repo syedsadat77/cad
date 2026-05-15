@@ -25,10 +25,10 @@ export function Hero() {
           src="/images/hero-bg.png"
           alt="AutoCAD Designer Workspace"
           fill
-          className="object-cover opacity-20"
+          className="object-cover opacity-20 dark:opacity-20 opacity-10"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a]/80 to-[#0a0a0a]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
       </div>
 
       {/* Grid Background */}
@@ -44,7 +44,7 @@ export function Hero() {
           className="inline-flex items-center gap-2 glass rounded-full px-5 py-2 mb-8"
         >
           <DraftingCompass className="h-4 w-4 text-amber-500" />
-          <span className="text-sm text-gray-300">Professional CAD Solutions</span>
+          <span className="text-sm text-muted-foreground">Professional CAD Solutions</span>
         </motion.div>
 
         {/* Main Title */}
@@ -58,7 +58,7 @@ export function Hero() {
               className={
                 word === 'Designer' || word === 'Drafter'
                   ? 'gradient-text '
-                  : 'text-white '
+                  : 'text-foreground '
               }
             >
               {word}{' '}
@@ -67,7 +67,7 @@ export function Hero() {
         </h1>
 
         {/* Subtitle */}
-        <p className="text-lg sm:text-xl md:text-2xl text-gray-400 mb-4">
+        <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4">
           {subtitleWords.map((word, i) => (
             <motion.span
               key={i}
@@ -87,7 +87,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.4 }}
-          className="text-gray-500 max-w-2xl mx-auto mb-10 text-base md:text-lg"
+          className="text-muted-foreground max-w-2xl mx-auto mb-10 text-base md:text-lg"
         >
           Transforming ideas into precise technical drawings and 3D models with
           years of expertise in industrial and structural CAD design.
@@ -115,7 +115,7 @@ export function Hero() {
               const el = document.querySelector('#contact')
               if (el) el.scrollIntoView({ behavior: 'smooth' })
             }}
-            className="border-white/20 text-white hover:bg-white/10 px-8 py-6 text-base rounded-lg"
+            className="border-border text-foreground hover:bg-accent/10 px-8 py-6 text-base rounded-lg"
           >
             Get In Touch
           </Button>
@@ -132,7 +132,7 @@ export function Hero() {
             onClick={scrollToAbout}
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="text-gray-500 hover:text-amber-500 transition-colors"
+            className="text-muted-foreground hover:text-amber-500 transition-colors"
           >
             <ArrowDown className="h-6 w-6" />
           </motion.button>

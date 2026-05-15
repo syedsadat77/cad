@@ -10,12 +10,6 @@ const skills = [
   { name: 'Structural Detailing', level: 88 },
   { name: 'Equipment Design', level: 87 },
   { name: 'Machinery Parts', level: 85 },
-  { name: 'Technical Drafting', level: 93 },
-  { name: 'Steel Connection', level: 86 },
-  { name: 'Blueprint Reading', level: 91 },
-  { name: '3D Modeling', level: 88 },
-  { name: 'Isometric Views', level: 89 },
-  { name: 'CAD Standards', level: 84 },
 ]
 
 export function Skills() {
@@ -38,7 +32,7 @@ export function Skills() {
               className="glass rounded-xl p-5 group hover:glow-amber transition-all duration-300"
             >
               <div className="flex items-center justify-between mb-3">
-                <span className="text-white font-medium text-sm group-hover:text-amber-500 transition-colors">
+                <span className="text-foreground font-medium text-sm group-hover:text-amber-500 transition-colors">
                   {skill.name}
                 </span>
                 <span className="text-amber-500 text-sm font-semibold">
@@ -47,7 +41,7 @@ export function Skills() {
               </div>
 
               {/* Progress Bar */}
-              <div className="h-2 rounded-full bg-white/5 overflow-hidden">
+              <div className="h-2 rounded-full bg-muted overflow-hidden">
                 <motion.div
                   initial={{ width: 0 }}
                   whileInView={{ width: `${skill.level}%` }}

@@ -6,10 +6,10 @@ import Image from 'next/image'
 import { SectionHeading } from './section-heading'
 
 const stats = [
-  { label: 'Years Experience', value: 8, suffix: '+' },
-  { label: 'Projects Completed', value: 150, suffix: '+' },
-  { label: 'Happy Clients', value: 80, suffix: '+' },
-  { label: 'CAD Models', value: 500, suffix: '+' },
+  { label: 'Years Experience', value: 5, suffix: '+' },
+  { label: 'Projects Completed', value: 20, suffix: '+' },
+  { label: 'Happy Clients', value: 12, suffix: '+' },
+  { label: 'CAD Models', value: 100, suffix: '+' },
 ]
 
 function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
@@ -71,12 +71,13 @@ export function About() {
               <div className="absolute -inset-1 rounded-2xl border border-amber-500/30" />
               <div className="relative rounded-2xl overflow-hidden h-full w-full">
                 <Image
-                  src="/images/about-portrait.png"
+                  src="/images/about-portrait.jpeg"
                   alt="SYED - Professional AutoCAD Designer"
                   fill
                   className="object-cover"
+                  priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
               </div>
             </div>
           </motion.div>
@@ -89,22 +90,22 @@ export function About() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="space-y-6"
           >
-            <h3 className="text-2xl font-semibold text-white">
+            <h3 className="text-2xl font-semibold text-foreground">
               Crafting Precision in Every Line
             </h3>
-            <p className="text-gray-400 leading-relaxed">
-              I am SYED, a passionate AutoCAD designer with over 8 years of
-              experience specializing in Pre-Engineered Building (PEB)
+            <p className="text-muted-foreground leading-relaxed">
+              Hi, I&apos;m SYED — a passionate AutoCAD designer with 5+ years of
+              hands-on experience specializing in Pre-Engineered Building (PEB)
               structures, equipment parts design, and 2D/3D machinery part
-              modeling. My expertise lies in transforming engineering concepts
-              into accurate, production-ready technical drawings and 3D models.
+              modeling. I bring engineering concepts to life through accurate,
+              production-ready technical drawings and 3D models.
             </p>
-            <p className="text-gray-400 leading-relaxed">
-              From detailed structural steel connections to complex piping
-              assemblies and intricate machinery components, I bring a meticulous
-              approach to every project. My goal is to deliver CAD solutions that
-              meet the highest industry standards while ensuring clarity and
-              precision for fabrication and manufacturing teams.
+            <p className="text-muted-foreground leading-relaxed">
+              From detailed PEB structural frameworks to complex equipment
+              assemblies and precise machinery components, I approach every
+              project with meticulous attention to detail. My goal is to deliver
+              CAD solutions that meet the highest industry standards — ensuring
+              clarity and precision for fabrication and manufacturing teams.
             </p>
 
             {/* Stats Grid */}
@@ -119,7 +120,7 @@ export function About() {
                   className="glass rounded-xl p-4 text-center"
                 >
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                  <p className="text-gray-500 text-xs mt-2">{stat.label}</p>
+                  <p className="text-muted-foreground text-xs mt-2">{stat.label}</p>
                 </motion.div>
               ))}
             </div>

@@ -10,7 +10,6 @@ const categories = [
   { id: 'all', label: 'All' },
   { id: 'peb', label: 'PEB Structures' },
   { id: 'equipment', label: 'Equipment' },
-  { id: 'machinery', label: 'Machinery' },
 ]
 
 const projects = [
@@ -21,33 +20,15 @@ const projects = [
     description: 'Complete structural design of a pre-engineered warehouse with bolted connections',
   },
   {
-    title: 'Steel Connection Detail',
-    image: '/images/project-steel.png',
-    category: 'peb',
-    description: 'Detailed steel moment connection with weld and bolt specifications',
-  },
-  {
     title: 'Equipment Parts Assembly',
     image: '/images/project-equipment.png',
     category: 'equipment',
     description: '2D drafting of industrial equipment components and sub-assemblies',
   },
   {
-    title: 'Piping & Valve System',
-    image: '/images/project-piping.png',
-    category: 'equipment',
-    description: 'Process piping layout with valve assembly and connection details',
-  },
-  {
-    title: '3D Machinery Assembly',
-    image: '/images/project-machinery.png',
-    category: 'machinery',
-    description: 'Full 3D model and exploded view of complex machinery components',
-  },
-  {
     title: 'Floor Plan Layout',
     image: '/images/project-floorplan.png',
-    category: 'machinery',
+    category: 'equipment',
     description: 'Detailed industrial floor plan with equipment placement and dimensions',
   },
 ]
@@ -83,7 +64,7 @@ export function Projects() {
               className={`cursor-pointer px-5 py-2 text-sm transition-all duration-200 ${
                 activeCategory === cat.id
                   ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-black border-transparent hover:from-amber-600 hover:to-orange-600'
-                  : 'border-white/20 text-gray-400 hover:text-amber-500 hover:border-amber-500/50'
+                  : 'border-border text-muted-foreground hover:text-amber-500 hover:border-amber-500/50'
               }`}
               onClick={() => setActiveCategory(cat.id)}
             >
@@ -103,7 +84,7 @@ export function Projects() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="group relative rounded-2xl overflow-hidden cursor-pointer aspect-[4/3]"
+                className="group relative rounded-2xl overflow-hidden cursor-pointer aspect-[4/3] glass"
               >
                 {/* Image */}
                 <Image
@@ -114,7 +95,7 @@ export function Projects() {
                 />
 
                 {/* Dark overlay base */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-amber-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -134,7 +115,7 @@ export function Projects() {
                     <h3 className="text-lg font-semibold text-white mb-1">
                       {project.title}
                     </h3>
-                    <p className="text-gray-400 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p className="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       {project.description}
                     </p>
                   </motion.div>

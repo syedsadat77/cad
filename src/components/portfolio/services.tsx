@@ -71,12 +71,12 @@ export function Services() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-amber-500 transition-colors">
+                <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-amber-500 transition-colors">
                   {service.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
                   {service.description}
                 </p>
 
@@ -85,7 +85,7 @@ export function Services() {
                   {service.features.map((feature) => (
                     <li
                       key={feature}
-                      className="flex items-center gap-2 text-sm text-gray-500"
+                      className="flex items-center gap-2 text-sm text-muted-foreground"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-amber-500/60" />
                       {feature}

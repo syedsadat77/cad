@@ -19,7 +19,7 @@ export function SectionHeading({ title, subtitle }: SectionHeadingProps) {
       <h2 className="text-3xl md:text-4xl font-bold mb-4">
         <span className="gradient-text">{title}</span>
       </h2>
-      <p className="text-gray-400 text-lg max-w-2xl mx-auto">{subtitle}</p>
+      <p className="text-muted-foreground text-lg max-w-2xl mx-auto">{subtitle}</p>
       <div className="mt-4 mx-auto w-20 h-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500" />
     </motion.div>
   )
