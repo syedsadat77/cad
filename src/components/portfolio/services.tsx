@@ -61,37 +61,49 @@ export function Services() {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.15 }}
-                whileHover={{ y: -8 }}
-                className="glass rounded-2xl p-6 lg:p-8 group cursor-pointer transition-all duration-300 hover:glow-amber-lg"
+                transition={{ duration: 0.5, delay: i * 0.15, type: 'spring', stiffness: 100 }}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="glass rounded-2xl p-6 lg:p-8 group cursor-pointer transition-all duration-500 hover:glow-amber-lg relative overflow-hidden"
               >
-                {/* Icon */}
-                <div className="w-14 h-14 rounded-xl bg-amber-500/10 flex items-center justify-center mb-6 group-hover:bg-amber-500/20 transition-colors">
-                  <Icon className="h-7 w-7 text-amber-500" />
+                {/* Hover gradient bg */}
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                <div className="relative z-10">
+                  {/* Icon */}
+                  <motion.div
+                    className="w-14 h-14 rounded-xl bg-amber-500/10 flex items-center justify-center mb-6 group-hover:bg-amber-500/20 transition-all duration-300"
+                    whileHover={{ rotate: 5, scale: 1.1 }}
+                  >
+                    <Icon className="h-7 w-7 text-amber-500" />
+                  </motion.div>
+
+                  {/* Title */}
+                  <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-amber-500 transition-colors duration-300">
+                    {service.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                    {service.description}
+                  </p>
+
+                  {/* Features */}
+                  <ul className="space-y-2">
+                    {service.features.map((feature, fi) => (
+                      <motion.li
+                        key={feature}
+                        className="flex items-center gap-2 text-sm text-gray-500 group-hover:text-gray-400 transition-colors"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 + fi * 0.05 }}
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-amber-500/60 group-hover:bg-amber-500 transition-colors" />
+                        {feature}
+                      </motion.li>
+                    ))}
+                  </ul>
                 </div>
-
-                {/* Title */}
-                <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-amber-500 transition-colors">
-                  {service.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                  {service.description}
-                </p>
-
-                {/* Features */}
-                <ul className="space-y-2">
-                  {service.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="flex items-center gap-2 text-sm text-muted-foreground"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-amber-500/60" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
               </motion.div>
             )
           })}

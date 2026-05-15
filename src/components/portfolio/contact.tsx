@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Send, CheckCircle, AlertCircle, Mail } from 'lucide-react'
+import { Send, CheckCircle, AlertCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -57,23 +57,6 @@ export function Contact() {
           subtitle="Have a project in mind? Let's discuss how I can bring your ideas to life"
         />
 
-        {/* Email Link */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-10"
-        >
-          <a
-            href="mailto:syedsadat0123@gmail.com"
-            className="inline-flex items-center gap-2 text-amber-500 hover:text-amber-400 transition-colors text-lg font-medium group"
-          >
-            <Mail className="h-5 w-5 group-hover:scale-110 transition-transform" />
-            syedsadat0123@gmail.com
-          </a>
-        </motion.div>
-
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -85,13 +68,20 @@ export function Contact() {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
+              transition={{ type: 'spring', stiffness: 200 }}
               className="text-center py-12"
             >
-              <CheckCircle className="h-16 w-16 text-amber-500 mx-auto mb-4" />
-              <h3 className="text-2xl font-semibold text-foreground mb-2">
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: 'spring', stiffness: 200, delay: 0.1 }}
+              >
+                <CheckCircle className="h-16 w-16 text-amber-500 mx-auto mb-4" />
+              </motion.div>
+              <h3 className="text-2xl font-semibold text-white mb-2">
                 Message Sent!
               </h3>
-              <p className="text-muted-foreground">
+              <p className="text-gray-400">
                 Thank you for reaching out. I&apos;ll get back to you soon.
               </p>
               <Button
@@ -105,8 +95,14 @@ export function Contact() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-sm text-muted-foreground" htmlFor="name">
+                <motion.div
+                  className="space-y-2"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                >
+                  <label className="text-sm text-gray-400" htmlFor="name">
                     Name
                   </label>
                   <Input
@@ -114,11 +110,17 @@ export function Contact() {
                     name="name"
                     placeholder="Your name"
                     required
-                    className="bg-background border-border text-foreground placeholder:text-muted-foreground focus-visible:border-amber-500/50 focus-visible:ring-amber-500/20"
+                    className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus-visible:border-amber-500/50 focus-visible:ring-amber-500/20 transition-all duration-300"
                   />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm text-muted-foreground" htmlFor="email">
+                </motion.div>
+                <motion.div
+                  className="space-y-2"
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                >
+                  <label className="text-sm text-gray-400" htmlFor="email">
                     Email
                   </label>
                   <Input
@@ -127,13 +129,19 @@ export function Contact() {
                     type="email"
                     placeholder="your@email.com"
                     required
-                    className="bg-background border-border text-foreground placeholder:text-muted-foreground focus-visible:border-amber-500/50 focus-visible:ring-amber-500/20"
+                    className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus-visible:border-amber-500/50 focus-visible:ring-amber-500/20 transition-all duration-300"
                   />
-                </div>
+                </motion.div>
               </div>
 
-              <div className="space-y-2">
-                <label className="text-sm text-muted-foreground" htmlFor="subject">
+              <motion.div
+                className="space-y-2"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+              >
+                <label className="text-sm text-gray-400" htmlFor="subject">
                   Subject
                 </label>
                 <Input
@@ -141,12 +149,18 @@ export function Contact() {
                   name="subject"
                   placeholder="Project inquiry"
                   required
-                  className="bg-background border-border text-foreground placeholder:text-muted-foreground focus-visible:border-amber-500/50 focus-visible:ring-amber-500/20"
+                  className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus-visible:border-amber-500/50 focus-visible:ring-amber-500/20 transition-all duration-300"
                 />
-              </div>
+              </motion.div>
 
-              <div className="space-y-2">
-                <label className="text-sm text-muted-foreground" htmlFor="message">
+              <motion.div
+                className="space-y-2"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+              >
+                <label className="text-sm text-gray-400" htmlFor="message">
                   Message
                 </label>
                 <Textarea
@@ -155,9 +169,9 @@ export function Contact() {
                   placeholder="Tell me about your project..."
                   required
                   rows={5}
-                  className="bg-background border-border text-foreground placeholder:text-muted-foreground focus-visible:border-amber-500/50 focus-visible:ring-amber-500/20 resize-none"
+                  className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus-visible:border-amber-500/50 focus-visible:ring-amber-500/20 resize-none transition-all duration-300"
                 />
-              </div>
+              </motion.div>
 
               {error && (
                 <motion.div
@@ -170,27 +184,32 @@ export function Contact() {
                 </motion.div>
               )}
 
-              <Button
-                type="submit"
-                disabled={loading}
-                className="w-full bg-gradient-to-r from-amber-500 to-orange-500 text-black font-semibold py-6 text-base hover:from-amber-600 hover:to-orange-600 glow-amber rounded-lg disabled:opacity-50"
+              <motion.div
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
               >
-                {loading ? (
-                  <span className="flex items-center gap-2">
-                    <motion.span
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-                      className="inline-block w-4 h-4 border-2 border-black/30 border-t-black rounded-full"
-                    />
-                    Sending...
-                  </span>
-                ) : (
-                  <span className="flex items-center gap-2">
-                    <Send className="h-4 w-4" />
-                    Send Message
-                  </span>
-                )}
-              </Button>
+                <Button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-gradient-to-r from-amber-500 to-orange-500 text-black font-semibold py-6 text-base hover:from-amber-600 hover:to-orange-600 glow-amber rounded-lg disabled:opacity-50 transition-all duration-300"
+                >
+                  {loading ? (
+                    <span className="flex items-center gap-2">
+                      <motion.span
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+                        className="inline-block w-4 h-4 border-2 border-black/30 border-t-black rounded-full"
+                      />
+                      Sending...
+                    </span>
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      <Send className="h-4 w-4" />
+                      Send Message
+                    </span>
+                  )}
+                </Button>
+              </motion.div>
             </form>
           )}
         </motion.div>
