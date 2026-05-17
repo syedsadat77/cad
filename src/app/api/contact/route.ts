@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { db } from '@/lib/db'
 
 interface ContactRequestBody {
   name: string
@@ -55,24 +54,19 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Save to database
-    const contactMessage = await db.contactMessage.create({
-      data: {
-        name: name.trim(),
-        email: email.trim(),
-        subject: subject.trim(),
-        message: message.trim(),
-      },
+    // Log the contact message (in production, you'd save to a database or send email)
+    console.log('New contact form submission:', {
+      name: name.trim(),
+      email: email.trim(),
+      subject: subject.trim(),
+      message: message.trim(),
+      timestamp: new Date().toISOString(),
     })
 
     return NextResponse.json(
       {
         success: true,
         message: 'Thank you for your message! I will get back to you soon.',
-        data: {
-          id: contactMessage.id,
-          createdAt: contactMessage.createdAt,
-        },
       },
       { status: 201 }
     )
